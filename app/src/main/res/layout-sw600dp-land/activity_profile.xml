@@ -25,7 +25,7 @@
         android:layout_marginEnd="78dp"
         android:layout_marginRight="78dp"
         android:layout_marginTop="102dp"
-        android:text="Display name"
+        android:text="@string/display_name"
         android:textColor="@android:color/white"
         android:textSize="32sp"
         android:textStyle="bold" />
@@ -40,7 +40,7 @@
         android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="22dp"
-        android:text="profile status"
+        android:text="@string/profile_about"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
 
@@ -59,7 +59,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
-        android:text="send friend request"
+        android:text="@string/send_friend_request"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
 
@@ -78,7 +78,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
-        android:text="decline friend request"
+        android:text="@string/decline_friend_request"
         android:textColor="@android:color/white"
         android:textSize="24sp" />
 

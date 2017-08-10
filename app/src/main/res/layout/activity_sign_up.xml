@@ -37,7 +37,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="58dp"
                 android:singleLine="true"
-                android:text="Create a new Account"
+                android:text="@string/create_new_account"
                 android:textColor="@android:color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />

@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/sender_msg_background"
         android:padding="15dp"
-        android:text="text view"
+        android:text="@string/hello_message"
         android:textColor="@color/colorPrimary"
         android:textSize="14sp" />
 

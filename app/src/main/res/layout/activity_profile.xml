@@ -20,7 +20,7 @@
         android:layout_below="@+id/profile_avatar_iv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Display name"
+        android:text="@string/display_name"
         android:textColor="@android:color/white"
         android:textSize="@dimen/title_text_size"
         android:textStyle="bold" />
@@ -32,7 +32,7 @@
         android:layout_below="@+id/profile_display_name_tv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="profile status"
+        android:text="@string/profile_about"
         android:textColor="@android:color/white"
         android:textSize="@dimen/small_text_size" />
 
@@ -48,7 +48,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
-        android:text="send friend request"
+        android:text="@string/send_friend_request"
         android:textColor="@android:color/white" />
 
     <Button
@@ -63,7 +63,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
-        android:text="decline friend request"
+        android:text="@string/decline_friend_request"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

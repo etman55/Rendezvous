@@ -100,11 +100,14 @@
         android:text="@string/reset_password"
         android:textSize="24sp" />
 
-    <ImageView
-        android:id="@+id/imageView4"
+    <TextView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_below="@+id/facebook_builtin_btn"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/rend" />
+        android:gravity="center"
+        android:text="@string/app_logo"
+        android:textColor="#C00F52"
+        android:textSize="129sp" />
 </RelativeLayout>

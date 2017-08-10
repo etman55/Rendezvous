@@ -29,7 +29,7 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/msg_txt_background"
         android:padding="15dp"
-        android:text="text view"
+        android:text="@string/hello_message"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
 

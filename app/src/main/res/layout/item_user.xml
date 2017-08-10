@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/user_avatar"
         android:layout_toRightOf="@+id/user_avatar"
-        android:text="Display name"
+        android:text="@string/display_name"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -36,7 +36,7 @@
         android:layout_alignStart="@+id/user_name_txt"
         android:layout_below="@+id/user_name_txt"
         android:layout_marginTop="11dp"
-        android:text="Defualt about"
+        android:text="@string/profile_about"
         android:textSize="18sp" />
 
     <ImageView

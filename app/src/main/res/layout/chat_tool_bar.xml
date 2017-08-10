@@ -31,7 +31,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:text="Display Name"
+            android:text="@string/display_name"
             android:textColor="@android:color/white"
             android:textSize="24sp" />
 
@@ -42,7 +42,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/chat_bar_display_name_tv"
-            android:text="last seen"
+            android:text="@string/last_seen"
             android:textColor="@android:color/white" />
     </RelativeLayout>
 </android.support.v7.widget.Toolbar>
