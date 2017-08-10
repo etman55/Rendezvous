@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark">
+    android:background="#3F0B2A">
 
     <ImageView
         android:id="@+id/profile_avatar_iv"
@@ -13,65 +13,66 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/white"
-        android:src="@drawable/ic_person" />
+        android:src="@drawable/ic_place_holder" />
 
     <TextView
         android:id="@+id/profile_display_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/profile_send_request_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/profile_send_request_btn"
         android:layout_marginEnd="78dp"
         android:layout_marginRight="78dp"
         android:layout_marginTop="102dp"
         android:text="Display name"
         android:textColor="@android:color/white"
         android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/profile_send_request_btn"
-        android:layout_alignEnd="@+id/profile_send_request_btn" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/profile_status_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/profile_display_name_tv"
+        android:layout_alignStart="@+id/profile_display_name_tv"
+        android:layout_below="@+id/profile_display_name_tv"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="22dp"
         android:text="profile status"
         android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:layout_below="@+id/profile_display_name_tv"
-        android:layout_alignLeft="@+id/profile_display_name_tv"
-        android:layout_alignStart="@+id/profile_display_name_tv"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/profile_send_request_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/profile_decline_request_btn"
+        android:layout_alignLeft="@+id/profile_decline_request_btn"
+        android:layout_alignStart="@+id/profile_decline_request_btn"
         android:layout_marginBottom="22dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:background="@color/colorAccent"
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:text="send friend request"
-        android:textSize="24sp"
         android:textColor="@android:color/white"
-        android:layout_above="@+id/profile_decline_request_btn"
-        android:layout_alignLeft="@+id/profile_decline_request_btn"
-        android:layout_alignStart="@+id/profile_decline_request_btn"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/profile_decline_request_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginBottom="52dp"
         android:layout_marginEnd="38dp"
         android:layout_marginRight="38dp"
-        android:textSize="24sp"
         android:background="@color/colorAccent"
         android:paddingEnd="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -79,8 +80,6 @@
         android:paddingStart="@dimen/activity_horizontal_margin"
         android:text="decline friend request"
         android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textSize="24sp" />
 
 </RelativeLayout>

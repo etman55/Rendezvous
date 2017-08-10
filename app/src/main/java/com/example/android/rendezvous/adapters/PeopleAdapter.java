@@ -104,7 +104,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleView
                 PicassoCache.get(context)
                         .load(thumbUrl)
                         .networkPolicy(NetworkPolicy.OFFLINE)
-                        .placeholder(R.mipmap.default_avatar)
+                        .placeholder(R.drawable.ic_place_holder)
                         .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                         .centerCrop()
                         .transform(new CircularTransform())
@@ -118,7 +118,7 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleView
                             public void onError() {
                                 Picasso.with(context)
                                         .load(thumbUrl)
-                                        .placeholder(R.mipmap.default_avatar)
+                                        .placeholder(R.drawable.ic_place_holder)
                                         .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                                         .centerCrop()
                                         .transform(new CircularTransform())

@@ -109,7 +109,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                                 PicassoCache.get(ProfileSettingsActivity.this)
                                         .load(image)
                                         .networkPolicy(NetworkPolicy.OFFLINE)
-                                        .placeholder(R.mipmap.default_avatar)
+                                        .placeholder(R.drawable.ic_place_holder)
                                         .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                                         .centerCrop()
                                         .transform(new CircularTransform())
@@ -123,7 +123,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                                             public void onError() {
                                                 Picasso.with(ProfileSettingsActivity.this)
                                                         .load(image)
-                                                        .placeholder(R.mipmap.default_avatar)
+                                                        .placeholder(R.drawable.ic_place_holder)
                                                         .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                                                         .centerCrop()
                                                         .transform(new CircularTransform())

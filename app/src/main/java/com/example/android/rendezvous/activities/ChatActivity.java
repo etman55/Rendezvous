@@ -114,7 +114,7 @@ public class ChatActivity extends AppCompatActivity {
                     PicassoCache.get(ChatActivity.this)
                             .load(image)
                             .networkPolicy(NetworkPolicy.OFFLINE)
-                            .placeholder(R.mipmap.default_avatar)
+                            .placeholder(R.drawable.ic_place_holder)
                             .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                             .centerCrop()
                             .transform(new CircularTransform())
@@ -128,7 +128,7 @@ public class ChatActivity extends AppCompatActivity {
                                 public void onError() {
                                     Picasso.with(ChatActivity.this)
                                             .load(image)
-                                            .placeholder(R.mipmap.default_avatar)
+                                            .placeholder(R.drawable.ic_place_holder)
                                             .resizeDimen(R.dimen.user_avatar_size, R.dimen.user_avatar_size)
                                             .centerCrop()
                                             .transform(new CircularTransform())

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000">
+    android:background="#3F0B2A">
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="@dimen/widget_size"
         android:layout_height="@dimen/widget_size"
-        android:src="@mipmap/default_avatar"
+        android:src="@drawable/ic_place_holder"
         android:layout_marginLeft="29dp"
         android:layout_marginStart="29dp"
         android:layout_alignTop="@+id/display_name_txt"

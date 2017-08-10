@@ -12,7 +12,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/ic_person" />
+        android:background="@drawable/ic_place_holder"
+        android:backgroundTint="#000" />
 
     <TextView
         android:id="@+id/user_name_txt"
