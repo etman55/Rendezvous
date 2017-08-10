@@ -10,17 +10,18 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/image_msg"/>
 
     <ProgressBar
         android:id="@+id/progress_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/other_image_msg"
         android:layout_marginLeft="74dp"
         android:layout_marginStart="74dp"
-        android:layout_below="@+id/other_image_msg"
-        android:layout_toRightOf="@+id/other_msg_tv"
-        android:layout_toEndOf="@+id/other_msg_tv" />
+        android:layout_toEndOf="@+id/other_msg_tv"
+        android:layout_toRightOf="@+id/other_msg_tv" />
 
     <TextView
         android:id="@+id/other_msg_tv"

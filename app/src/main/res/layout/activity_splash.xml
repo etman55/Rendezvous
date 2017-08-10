@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="39dp"
+        android:contentDescription="@string/heart_pic"
         android:src="@drawable/hearts" />
 
     <ImageView
@@ -20,6 +21,7 @@
         android:layout_alignTop="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp"
+        android:contentDescription="@string/logo_icon"
         android:src="@drawable/rend" />
 
 </RelativeLayout>

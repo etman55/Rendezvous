@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="placeholder">avatar placeholder</string>
+    <string name="send_message">send message button</string>
+    <string name="add_pic">add image button</string>
+    <string name="google_plus">google plus icon</string>
+    <string name="facebook_pic">facebook icon</string>
+    <string name="logo_icon">logo icon</string>
+    <string name="heart_pic">heart puc</string>
+    <string name="image_msg">image message</string>
+
+
+</resources>

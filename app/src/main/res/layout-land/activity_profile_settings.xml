@@ -10,73 +10,74 @@
         android:id="@+id/avatar"
         android:layout_width="@dimen/widget_size"
         android:layout_height="@dimen/widget_size"
-        android:src="@drawable/ic_place_holder"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/display_name_txt"
         android:layout_marginLeft="29dp"
         android:layout_marginStart="29dp"
-        android:layout_alignTop="@+id/display_name_txt"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:contentDescription="@string/placeholder"
+        android:src="@drawable/ic_place_holder" />
 
     <TextView
         android:id="@+id/display_name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginTop="75dp"
         android:text="@string/display_name"
         android:textSize="48dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:layout_marginRight="46dp"
-        android:layout_marginEnd="46dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="75dp" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <TextView
         android:id="@+id/about_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/profile_about"
-        android:textSize="32dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_alignLeft="@+id/display_name_txt"
+        android:layout_alignStart="@+id/display_name_txt"
+        android:layout_centerVertical="true"
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/display_name_txt"
-        android:layout_alignStart="@+id/display_name_txt" />
+        android:text="@string/profile_about"
+        android:textSize="32dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <Button
         android:id="@+id/change_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/change_about"
+        android:layout_alignBottom="@+id/change_about"
+        android:layout_alignLeft="@+id/avatar"
+        android:layout_alignStart="@+id/avatar"
+        android:layout_marginLeft="154dp"
+        android:layout_marginStart="154dp"
         android:background="@android:color/white"
         android:paddingEnd="32dp"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
         android:paddingStart="32dp"
         android:text="@string/change_image"
-        android:textSize="24sp"
         android:textColor="#3F0B2A"
-        android:layout_alignBaseline="@+id/change_about"
-        android:layout_alignBottom="@+id/change_about"
-        android:layout_alignLeft="@+id/avatar"
-        android:layout_alignStart="@+id/avatar"
-        android:layout_marginLeft="154dp"
-        android:layout_marginStart="154dp" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/change_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/display_name_txt"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/display_name_txt"
         android:layout_marginBottom="50dp"
         android:background="@color/colorAccent"
         android:paddingEnd="18dp"
         android:paddingLeft="18dp"
-        android:textSize="24sp"
         android:paddingRight="18dp"
         android:paddingStart="18dp"
         android:text="@string/change_info"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/display_name_txt"
-        android:layout_alignEnd="@+id/display_name_txt" />
+        android:textSize="24sp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 </RelativeLayout>

@@ -58,6 +58,7 @@
         android:layout_below="@+id/login_btn"
         android:layout_marginLeft="280dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/google_plus"
         android:src="@drawable/ic_google_plus" />
 
     <ImageView
@@ -67,6 +68,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/google_btn"
         android:layout_marginRight="280dp"
+        android:contentDescription="@string/facebook_pic"
         android:src="@drawable/ic_facebook" />
 
     <com.facebook.login.widget.LoginButton
