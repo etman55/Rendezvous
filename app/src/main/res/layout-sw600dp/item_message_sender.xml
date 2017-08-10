@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sender_msg_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/my_image_msg"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true" />
+
+    <ProgressBar
+        android:id="@+id/progress_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="56dp"
+        android:layout_marginEnd="56dp"
+        android:layout_below="@+id/my_image_msg"
+        android:layout_toLeftOf="@+id/my_msg_tv"
+        android:layout_toStartOf="@+id/my_msg_tv" />
+
+    <TextView
+        android:id="@+id/my_msg_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/sender_msg_background"
+        android:padding="24dp"
+        android:text="text view"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+</RelativeLayout>

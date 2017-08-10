@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.rendezvous.activities.SettingsActivity">
+
+    <include
+        android:id="@+id/settings_app_bar"
+        layout="@layout/app_bar_layout" />
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/settings_app_bar"
+        android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginTop="34dp"
+            android:layout_toLeftOf="@+id/save_radius"
+            android:layout_toStartOf="@+id/save_radius"
+            android:text="Choose Your Preferences"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/delete_account_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="@dimen/inner_space"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:text="Delete account" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/radius_input_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/delete_account_btn"
+            android:layout_alignStart="@+id/delete_account_btn"
+            android:layout_marginTop="88dp"
+            android:hint="Radius(KM)">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="number" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/save_radius"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/delete_account_btn"
+            android:layout_alignRight="@+id/delete_account_btn"
+            android:layout_below="@+id/radius_input_tv"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_marginTop="22dp"
+            android:background="@android:color/white"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="save radius"
+            android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/about_toolbar"
+        layout="@layout/app_bar_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/about_toolbar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/about_input"
+            android:layout_alignStart="@+id/about_input">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/username_input"
+                android:layout_alignStart="@+id/username_input"
+                android:layout_below="@+id/about_toolbar"
+                android:layout_marginTop="36dp"
+                android:elevation="1dp"
+                android:hint="Your Name" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/save_username_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/username_input"
+            android:layout_alignRight="@+id/username_input"
+            android:layout_below="@+id/username_input"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingStart="16dp"
+            android:text="Save username"
+            android:textColor="@android:color/white" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/about_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/save_username_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="82dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/about_input"
+                android:layout_alignStart="@+id/about_input"
+                android:layout_below="@+id/about_input"
+                android:layout_marginTop="36dp"
+                android:elevation="1dp"
+                android:hint="Your About" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/save_about_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/about_input"
+            android:layout_alignRight="@+id/about_input"
+            android:layout_below="@+id/about_input"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorAccent"
+            android:paddingEnd="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingStart="16dp"
+            android:text="Save About"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</RelativeLayout>

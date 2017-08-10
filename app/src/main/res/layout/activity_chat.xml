@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cccccc">
+
+    <include
+        android:id="@+id/chat_toolbar"
+        layout="@layout/chat_tool_bar" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/msgs_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/msg_layout"
+        android:layout_below="@id/chat_toolbar"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+    <LinearLayout
+        android:id="@+id/msg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:weightSum="10">
+
+        <ImageButton
+            android:id="@+id/add_img_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:src="@drawable/ic_add_black_24dp" />
+
+        <EditText
+            android:id="@+id/chat_msg_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:hint="type a message.."
+            android:paddingBottom="12dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="16dp"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/send_msg_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:src="@drawable/ic_send_black_24dp" />
+    </LinearLayout>
+</RelativeLayout>

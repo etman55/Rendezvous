@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_200"
+    tools:appContext=".SignUpActivity">
+
+    <include
+        android:id="@+id/sign_up_tool_bar"
+        layout="@layout/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sign_up_tool_bar"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/outer_space">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="58dp"
+                android:singleLine="true"
+                android:text="Create a new Account"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="163dp"
+                app:cardElevation="@dimen/default_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/inner_space">
+
+                    <EditText
+                        android:id="@+id/username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/inner_space"
+                        android:drawableLeft="@drawable/ic_person"
+                        android:drawablePadding="@dimen/inner_space"
+                        android:drawableStart="@drawable/ic_person"
+                        android:hint="@string/username"
+                        android:inputType="textAutoComplete"
+                        android:maxLines="1" />
+
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/inner_space"
+                        android:drawableLeft="@drawable/ic_mail"
+                        android:drawablePadding="@dimen/inner_space"
+                        android:drawableStart="@drawable/ic_mail"
+                        android:hint="@string/hint_email"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/inner_space"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:drawablePadding="@dimen/inner_space"
+                        android:drawableStart="@drawable/ic_lock_black_24dp"
+                        android:hint="@string/hint_password"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+
+                    <EditText
+                        android:id="@+id/repeat_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:drawablePadding="@dimen/inner_space"
+                        android:drawableStart="@drawable/ic_lock_black_24dp"
+                        android:hint="@string/hint_repeat_password"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:id="@+id/sign_up_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/card"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="27dp"
+                android:background="@color/colorAccent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/action_sign_in_short"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign_up_button"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/textView"
+                android:layout_toRightOf="@+id/textView"
+                android:padding="@dimen/inner_space"
+                android:text="@string/btn_link_to_login" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>
