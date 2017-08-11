@@ -122,7 +122,7 @@ public class WidgetRemoteService extends RemoteViewsService {
                 });
             } else {
                 views.setViewVisibility(R.id.empty_txt, View.VISIBLE);
-                views.setTextViewText(R.id.empty_txt, "no friends yet!");
+                views.setTextViewText(R.id.empty_txt, getString(R.string.no_friends));
                 appWidgetManager.updateAppWidget(appWidgetId, views);
             }
         }
@@ -168,7 +168,7 @@ public class WidgetRemoteService extends RemoteViewsService {
                 rv.setOnClickFillInIntent(R.id.user_name_txt, fillInIntent);
             }else{
                 rv.setViewVisibility(R.id.empty_txt, View.VISIBLE);
-                rv.setTextViewText(R.id.empty_txt, "no friends yet!");
+                rv.setTextViewText(R.id.empty_txt, getString(R.string.no_friends));
             }
             return rv;
         }

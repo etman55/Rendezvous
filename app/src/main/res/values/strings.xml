@@ -30,6 +30,8 @@
     <string name="type_a_message">type a message..</string>
     <string name="display_name">Display name</string>
     <string name="profile_about">profile about</string>
+    <string name="no_friends">You don\'t have friends yet!</string>
+    <string name="no_people">There\'s no people around you</string>
     <string name="send_friend_request">send friend request</string>
     <string name="decline_friend_request">decline friend request</string>
     <string name="accept_friend">Accept Friend Request</string>

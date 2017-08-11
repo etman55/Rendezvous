@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="You have no friends"
+        android:text="@string/no_friends"
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
