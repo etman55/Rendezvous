@@ -89,14 +89,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         ButterKnife.bind(this);
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
+        Typeface tf1 = FontCache.get(getString(R.string.negra_bold), this);
+        logoTxt.setTypeface(tf1);
         Typeface tf = FontCache.get(getString(R.string.aller_regular), this);
         inputEmail.setTypeface(tf);
         inputPassword.setTypeface(tf);
         resetPassword.setTypeface(tf);
         register.setTypeface(tf);
         loginBtn.setTypeface(tf);
-        Typeface tf1 = FontCache.get(getString(R.string.negra_bold), this);
-        logoTxt.setTypeface(tf1);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
