@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#3F0B2A">
@@ -29,7 +28,7 @@
         android:layout_marginRight="46dp"
         android:layout_marginTop="75dp"
         android:text="@string/display_name"
-        android:textSize="48dp"
+        android:textSize="48sp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <TextView
@@ -42,7 +41,7 @@
         android:layout_marginLeft="42dp"
         android:layout_marginStart="42dp"
         android:text="@string/profile_about"
-        android:textSize="32dp"
+        android:textSize="32sp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <Button

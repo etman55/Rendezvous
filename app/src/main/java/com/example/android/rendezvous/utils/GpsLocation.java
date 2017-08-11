@@ -25,15 +25,13 @@ public class GpsLocation implements LocationListener, GoogleApiClient.Connection
     private GpsEventHandler eventHandler;
     private LocationRequest mLocationRequest;
     private GoogleApiClient mLocationClient;
-    private LocationManager manager;
     private Location lastKnownLocation;
     private static final int SERVICE_VERSION_UPDATE_REQUIRED = 2,
             SERVICE_MISSING = 1, SERVICE_DISABLED = 3, CANCELED = 13,
             SUCCESS = 0;
-    int PERIOD = 5000;
     private boolean isFirstTime = false;
 
-    private Context appContext;
+    private final Context appContext;
 
     public GpsLocation(Context context) {
         appContext = context;
@@ -43,7 +41,7 @@ public class GpsLocation implements LocationListener, GoogleApiClient.Connection
                 .addOnConnectionFailedListener(this)
                 .build();
 
-        manager = (LocationManager) appContext.getSystemService(
+        LocationManager manager = (LocationManager) appContext.getSystemService(
                 Context.LOCATION_SERVICE);
         // check if Google play services available, no dialog displayed
         if (isGooglePlayServicesAvailableNoDialogs()) {
@@ -57,8 +55,9 @@ public class GpsLocation implements LocationListener, GoogleApiClient.Connection
 
     }
 
-    public void startGps() {
+    private void startGps() {
         mLocationRequest = LocationRequest.create();
+        int PERIOD = 5000;
         mLocationRequest.setInterval(PERIOD);
         mLocationRequest.setFastestInterval(PERIOD);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);

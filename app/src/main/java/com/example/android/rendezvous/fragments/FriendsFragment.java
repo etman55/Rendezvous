@@ -48,8 +48,6 @@ public class FriendsFragment extends Fragment {
     TextView noFriendsTxt;
     private DatabaseReference mFriendsDatabase;
     private DatabaseReference mUserDatabase;
-    private FirebaseAuth mAuth;
-    private String mCurrentUserId;
     private FirebaseRecyclerAdapter<Friends, FriendsViewHolder> friendsAdapter;
 
     public FriendsFragment() {
@@ -62,8 +60,8 @@ public class FriendsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_friends, container, false);
         ButterKnife.bind(this, view);
-        mAuth = FirebaseAuth.getInstance();
-        mCurrentUserId = mAuth.getCurrentUser().getUid();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        String mCurrentUserId = mAuth.getCurrentUser().getUid();
         mFriendsDatabase = FirebaseDatabase.getInstance().getReference()
                 .child("Friends").child(mCurrentUserId);
         mFriendsDatabase.keepSynced(true);
@@ -100,7 +98,7 @@ public class FriendsFragment extends Fragment {
                                     viewHolder.setUserAvatar(thumb,
                                             getContext());
                                 }
-                                viewHolder.setOnlineStatus(online, getContext());
+                                viewHolder.setOnlineStatus(online);
                                 viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -161,8 +159,8 @@ public class FriendsFragment extends Fragment {
         ImageView avatar;
         @Bind(R.id.user_status_img)
         ImageView onlineStatus;
-        Typeface tf;
-        Typeface tf1;
+        final Typeface tf;
+        final Typeface tf1;
         public FriendsViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -207,7 +205,7 @@ public class FriendsFragment extends Fragment {
                     });
         }
 
-        public void setOnlineStatus(String status, Context context) {
+        public void setOnlineStatus(String status) {
             if (status.equals("true"))
                 onlineStatus.setVisibility(View.VISIBLE);
             else

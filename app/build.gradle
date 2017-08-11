@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
@@ -15,9 +16,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword 'atef123-1'
-            storeFile file('C:/Users/Etman/AndroidStudioProjects/Rendezvous/atef.jks')
-            storePassword 'atef123-1'
+            keyPassword 'Atef123-1'
+            storeFile file('../atef.jks')
+            storePassword 'Atef123-1'
         }
     }
     buildTypes {

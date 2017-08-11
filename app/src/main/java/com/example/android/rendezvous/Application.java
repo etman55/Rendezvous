@@ -17,7 +17,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Application extends android.app.Application {
     private DatabaseReference mUserDatabase;
-    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate() {
@@ -26,7 +25,7 @@ public class Application extends android.app.Application {
         AppEventsLogger.activateApp(this);
         PrefUtil.with(getApplicationContext());
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
             mUserDatabase = FirebaseDatabase
                     .getInstance()

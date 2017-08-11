@@ -42,7 +42,6 @@ public class AboutActivity extends AppCompatActivity {
     @Bind(R.id.tool_bar_txt)
     TextView toolbarTxt;
     private DatabaseReference mUserDatabase;
-    private FirebaseUser mCurrentUser;
     private MaterialDialog dialog;
     private String lastAbout;
     private String lastUsername;
@@ -55,10 +54,10 @@ public class AboutActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Typeface tf = FontCache.get("fonts/Aller_Bd.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_bold), this);
         toolbarTxt.setTypeface(tf);
-        toolbarTxt.setText("Account Info");
-        Typeface tf1 = FontCache.get("fonts/Aller_Lt.ttf", this);
+        toolbarTxt.setText(getString(R.string.account_info));
+        Typeface tf1 = FontCache.get(getString(R.string.aller_light), this);
         mAboutInput.setTypeface(tf1);
         mUsernameInput.setTypeface(tf1);
         mSaveAboutBtn.setTypeface(tf1);
@@ -72,7 +71,7 @@ public class AboutActivity extends AppCompatActivity {
         }
         mAboutInput.getEditText().setText(lastAbout);
         mUsernameInput.getEditText().setText(lastUsername);
-        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         String uId = mCurrentUser.getUid();
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
     }

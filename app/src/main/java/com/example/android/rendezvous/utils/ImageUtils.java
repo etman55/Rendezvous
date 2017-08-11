@@ -21,7 +21,6 @@ public class ImageUtils {
 
     public static String compressImage(String imageUri) {
 
-        String filePath = imageUri;
         Bitmap scaledBitmap = null;
 
         BitmapFactory.Options options = new BitmapFactory.Options();
@@ -29,7 +28,7 @@ public class ImageUtils {
 //      by setting this field as true, the actual bitmap pixels are not loaded in the memory. Just the bounds are loaded. If
 //      you try the use the bitmap here, you will get null.
         options.inJustDecodeBounds = true;
-        Bitmap bmp = BitmapFactory.decodeFile(filePath, options);
+        Bitmap bmp = BitmapFactory.decodeFile(imageUri, options);
 
         int actualHeight = options.outHeight;
         int actualWidth = options.outWidth;
@@ -73,7 +72,7 @@ public class ImageUtils {
 
         try {
 //          load the bitmap from its path
-            bmp = BitmapFactory.decodeFile(filePath, options);
+            bmp = BitmapFactory.decodeFile(imageUri, options);
         } catch (OutOfMemoryError exception) {
             exception.printStackTrace();
 
@@ -99,7 +98,7 @@ public class ImageUtils {
 //      check the rotation of the image and display it properly
         ExifInterface exif;
         try {
-            exif = new ExifInterface(filePath);
+            exif = new ExifInterface(imageUri);
 
             int orientation = exif.getAttributeInt(
                     ExifInterface.TAG_ORIENTATION, 0);
@@ -138,17 +137,16 @@ public class ImageUtils {
 
     }
 
-    public static String getFilename() {
+    private static String getFilename() {
         File file = new File(Environment.getExternalStorageDirectory().getPath(), "MyFolder/Images");
         if (!file.exists()) {
             file.mkdirs();
         }
-        String uriSting = (file.getAbsolutePath() + "/" + System.currentTimeMillis() + ".jpg");
-        return uriSting;
+        return (file.getAbsolutePath() + "/" + System.currentTimeMillis() + ".jpg");
 
     }
 
-    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int height = options.outHeight;
         final int width = options.outWidth;
         int inSampleSize = 1;

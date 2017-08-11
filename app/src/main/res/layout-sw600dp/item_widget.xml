@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/user_avatar"
+        android:id="@+id/widget_user_avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginBottom="8dp"
@@ -38,6 +37,6 @@
         android:layout_alignStart="@+id/user_name_txt"
         android:layout_below="@+id/user_name_txt"
         android:layout_marginTop="12dp"
-        android:text="Defualt about"
+        android:text="@string/profile_about"
         android:textSize="24sp" />
 </RelativeLayout>

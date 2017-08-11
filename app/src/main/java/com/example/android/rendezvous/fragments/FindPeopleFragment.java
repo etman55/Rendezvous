@@ -58,14 +58,12 @@ public class FindPeopleFragment extends Fragment implements GeoQueryEventListene
     TextView noPeopleTxt;
     private DatabaseReference mUserDatabase;
     private DatabaseReference mGeoFireDatabase;
-    private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private GeoFire geoFire;
     private GeoQuery geoQuery;
     private PeopleAdapter peopleAdapter;
-    private List<User> userList = new ArrayList<>();
-    private List<String> peopleIds = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager;
+    private final List<User> userList = new ArrayList<>();
+    private final List<String> peopleIds = new ArrayList<>();
     private ValueEventListener peopleEventListener;
     private boolean newKeyEntered = false;
     private GpsLocation gpsLocation = null;
@@ -88,12 +86,12 @@ public class FindPeopleFragment extends Fragment implements GeoQueryEventListene
         noPeopleTxt.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.INVISIBLE);
         userList.clear();
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        if (PrefUtil.getIntToPref("Radius") == 0)
-            PrefUtil.saveIntToPref(5, "Radius");
+        if (PrefUtil.getIntToPref() == 0)
+            PrefUtil.saveIntToPref(5);
         else {
-            geoLocationRadius = PrefUtil.getIntToPref("Radius");
+            geoLocationRadius = PrefUtil.getIntToPref();
         }
         if (mUserDatabase == null)
             mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -106,7 +104,7 @@ public class FindPeopleFragment extends Fragment implements GeoQueryEventListene
         if (geoQuery != null)
             geoQuery.addGeoQueryEventListener(this);
         peopleList.setHasFixedSize(true);
-        linearLayoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         peopleList.setLayoutManager(linearLayoutManager);
         peopleAdapter = new PeopleAdapter(userList);
@@ -228,8 +226,7 @@ public class FindPeopleFragment extends Fragment implements GeoQueryEventListene
     private void buildAlertMessageNoGps() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(
                 getContext());
-        builder.setMessage(
-                "We need you to enable the location services ")
+        builder.setMessage(getString(R.string.enable_gps_message))
                 .setCancelable(false)
                 .setPositiveButton("Ok",
                         new DialogInterface.OnClickListener() {

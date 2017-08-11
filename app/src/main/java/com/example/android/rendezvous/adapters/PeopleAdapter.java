@@ -78,8 +78,9 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleView
         TextView mAbout;
         @Bind(R.id.user_status_img)
         ImageView onlineStatus;
-        Typeface tf;
-        Typeface tf1;
+        final Typeface tf;
+        final Typeface tf1;
+
         public PeopleViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

@@ -16,8 +16,8 @@ import com.example.android.rendezvous.activities.ChatActivity;
 public class RendezvousWidget extends AppWidgetProvider {
     private static final String TAG = RendezvousWidget.class.getSimpleName();
 
-    static void updateAppWidget(final Context context, final AppWidgetManager appWidgetManager,
-                                final int appWidgetId) {
+    private static void updateAppWidget(final Context context, final AppWidgetManager appWidgetManager,
+                                        final int appWidgetId) {
         Intent intent = new Intent(context, WidgetRemoteService.class);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.rendezvous_widget);

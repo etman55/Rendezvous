@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mUserDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
-        toolbarTxt.setText("Rendezvous");
-        Typeface tf = FontCache.get("fonts/WCManoNegraBoldBta-webfont.ttf",this);
+        toolbarTxt.setText(getString(R.string.app_name));
+        Typeface tf = FontCache.get(getString(R.string.negra_bold),this);
         toolbarTxt.setTypeface(tf);
         mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
+        FirebaseUser mUser = mAuth.getCurrentUser();
         mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(mUser.getUid());
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override

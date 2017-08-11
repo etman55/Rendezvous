@@ -24,7 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private FirebaseAuth mAuth;
+    private final FirebaseAuth mAuth;
     private ArrayList<Message> mMessageList = new ArrayList<>();
 
     public MessageAdapter(ArrayList<Message> mMessageList) {
@@ -84,7 +84,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         ImageView msgImg;
         @Bind(R.id.progress_other)
         ProgressBar progressBar;
-        Typeface tf1;
+        final Typeface tf1;
 
         public ReceiverViewHolder(View itemView) {
             super(itemView);
@@ -131,7 +131,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         TextView msgTv;
         @Bind(R.id.progress_sender)
         ProgressBar progressBar;
-        Typeface tf1;
+        final Typeface tf1;
 
         public SenderViewHolder(View itemView) {
             super(itemView);

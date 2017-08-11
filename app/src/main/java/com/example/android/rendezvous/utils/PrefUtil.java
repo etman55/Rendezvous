@@ -15,7 +15,7 @@ public class PrefUtil {
     private static SharedPreferences.Editor editor;
     private static PrefUtil instance;
 
-    public PrefUtil(Context context) {
+    private PrefUtil(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
@@ -48,11 +48,11 @@ public class PrefUtil {
         return sharedPreferences.getString(key, "");
     }
 
-    public static int getIntToPref(String key) {
-        return sharedPreferences.getInt(key, 0);
+    public static int getIntToPref() {
+        return sharedPreferences.getInt("Radius", 0);
     }
 
-    public static void saveIntToPref(int i, String key) {
-        editor.putInt(key, i).apply();
+    public static void saveIntToPref(int i) {
+        editor.putInt("Radius", i).apply();
     }
 }

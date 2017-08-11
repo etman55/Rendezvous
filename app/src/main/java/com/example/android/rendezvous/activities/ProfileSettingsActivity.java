@@ -66,30 +66,28 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     Button mChangeImageBtn;
     @Bind(R.id.change_about)
     Button mChangeAboutBtn;
-    private Uri imagePath;
     private DatabaseReference mUserDatabase;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private FirebaseUser mCurrentUser;
     private FirebaseAuth mAuth;
     private StorageReference mStorageRef;
     private MaterialDialog dialog;
-    private String uId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_settings);
         ButterKnife.bind(this);
-        Typeface tf = FontCache.get("fonts/Aller_Rg.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_regular), this);
         mDisplayName.setTypeface(tf);
-        Typeface tf1 = FontCache.get("fonts/Aller_Lt.ttf", this);
+        Typeface tf1 = FontCache.get(getString(R.string.aller_light), this);
         mAbout.setTypeface(tf1);
         mChangeImageBtn.setTypeface(tf1);
         mChangeAboutBtn.setTypeface(tf1);
         mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://rendezvous-a14ef.appspot.com/");
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
-        uId = mCurrentUser.getUid();
+        String uId = mCurrentUser.getUid();
         mUserDatabase = FirebaseDatabase.getInstance().getReference()
                 .child("Users").child(uId);
         mUserDatabase.keepSynced(true);
@@ -194,7 +192,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PICK_IMAGE)
             if (resultCode == RESULT_OK) {
-                imagePath = data.getData();
+                Uri imagePath = data.getData();
                 if (data.getData() != null) {
                     showLoading();
                     String filePath = DocumentHelper.getPath(this, imagePath);
@@ -278,7 +276,6 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                     Toast.makeText(ProfileSettingsActivity.this, "You should grant permission to proceed",
                             Toast.LENGTH_SHORT).show();
                 }
-                return;
             }
         }
     }

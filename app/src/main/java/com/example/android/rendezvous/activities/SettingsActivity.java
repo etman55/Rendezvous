@@ -54,7 +54,6 @@ public class SettingsActivity extends AppCompatActivity {
     TextView toolbarTxt;
     @Bind(R.id.textView2)
     TextView textView;
-    private FirebaseAuth mAuth;
     private FirebaseUser mFirebaseUser;
     private DatabaseReference mDatabaseRef;
     private MaterialDialog materialDialog;
@@ -67,20 +66,20 @@ public class SettingsActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        Typeface tf = FontCache.get("fonts/Aller_Bd.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_bold), this);
         toolbarTxt.setTypeface(tf);
-        Typeface tf2 = FontCache.get("fonts/Aller_Rg.ttf", this);
+        Typeface tf2 = FontCache.get(getString(R.string.aller_regular), this);
         textView.setTypeface(tf2);
-        toolbarTxt.setText("Settings");
-        Typeface tf1 = FontCache.get("fonts/Aller_Lt.ttf", this);
+        toolbarTxt.setText(getString(R.string.settings));
+        Typeface tf1 = FontCache.get(getString(R.string.aller_light), this);
         radiusInput.setTypeface(tf1);
         saveRadiusBtn.setTypeface(tf1);
         deleteAccountBtn.setTypeface(tf1);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mAuth.getCurrentUser();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-        if (PrefUtil.getIntToPref("Radius") != 0) {
-            radiusInput.getEditText().setText(String.valueOf(PrefUtil.getIntToPref("Radius")));
+        if (PrefUtil.getIntToPref() != 0) {
+            radiusInput.getEditText().setText(String.valueOf(PrefUtil.getIntToPref()));
         }
     }
 
@@ -91,7 +90,7 @@ public class SettingsActivity extends AppCompatActivity {
             return;
         }
         int radius = Integer.parseInt(radiusInput.getEditText().getText().toString().trim());
-        PrefUtil.saveIntToPref(radius, "Radius");
+        PrefUtil.saveIntToPref(radius);
         Utils.hideKeyboard(radiusInput.getEditText());
         Snackbar.make(contentLayout, "Radius parameter saved: " + radius + " KM", Snackbar.LENGTH_SHORT).show();
     }

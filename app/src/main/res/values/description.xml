@@ -8,6 +8,7 @@
     <string name="logo_icon">logo icon</string>
     <string name="heart_pic">heart puc</string>
     <string name="image_msg">image message</string>
+    <string name="online_status">Online status image</string>
 
 
 </resources>

@@ -69,12 +69,9 @@ public class ChatActivity extends AppCompatActivity {
     @Bind(R.id.msgs_list)
     RecyclerView messagesList;
     private String mChatUser;
-    private String mChatUserName;
-    private DatabaseReference mRootref;
-    private FirebaseAuth mAuth;
+    private DatabaseReference mRootRef;
     private String mCurrentUserId;
-    private ArrayList<Message> mMsgList = new ArrayList<>();
-    private LinearLayoutManager linearLayoutManager;
+    private final ArrayList<Message> mMsgList = new ArrayList<>();
     private MessageAdapter msgAdapter;
     private StorageReference mChatPhotosStorageReference;
     private ProgressDialog mProgressDialog;
@@ -87,25 +84,25 @@ public class ChatActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Typeface tf = FontCache.get("fonts/Aller_Bd.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_bold), this);
         mTitleTv.setTypeface(tf);
-        Typeface tf1 = FontCache.get("fonts/Aller_Lt.ttf", this);
+        Typeface tf1 = FontCache.get(getString(R.string.aller_light), this);
         mLastSeenTv.setTypeface(tf1);
         chatMsg.setTypeface(tf1);
         mChatUser = getIntent().getStringExtra("user_id");
-        mChatUserName = getIntent().getStringExtra("user_name");
-        mAuth = FirebaseAuth.getInstance();
-        mRootref = FirebaseDatabase.getInstance().getReference();
+        String mChatUserName = getIntent().getStringExtra("user_name");
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mRootRef = FirebaseDatabase.getInstance().getReference();
         mChatPhotosStorageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://rendezvous-a14ef.appspot.com/chat_images");
         if (mTitleTv != null) {
             mTitleTv.setText(mChatUserName);
         }
-        linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         messagesList.setHasFixedSize(true);
         messagesList.setLayoutManager(linearLayoutManager);
         msgAdapter = new MessageAdapter(mMsgList);
         messagesList.setAdapter(msgAdapter);
-        mRootref.child("Users").child(mChatUser).addValueEventListener(new ValueEventListener() {
+        mRootRef.child("Users").child(mChatUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String online = dataSnapshot.child("online").getValue().toString();
@@ -137,7 +134,7 @@ public class ChatActivity extends AppCompatActivity {
                             });
                 }
                 if (online.equals("true"))
-                    mLastSeenTv.setText("Online Now");
+                    mLastSeenTv.setText(getString(R.string.online_now));
                 else {
                     long lastTime = Long.parseLong(online);
                     String lastSeen = GetTimeAgo.getTimeAgo(lastTime);
@@ -151,7 +148,7 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
         mCurrentUserId = mAuth.getCurrentUser().getUid();
-        mRootref.child("messages").child(mCurrentUserId).child(mChatUser).addChildEventListener(new ChildEventListener() {
+        mRootRef.child("messages").child(mCurrentUserId).child(mChatUser).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Message msg = dataSnapshot.getValue(Message.class);
@@ -179,7 +176,7 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
-        mRootref.child("Chat").child(mCurrentUserId).addValueEventListener(new ValueEventListener() {
+        mRootRef.child("Chat").child(mCurrentUserId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (!dataSnapshot.hasChild(mChatUser)) {
@@ -189,7 +186,7 @@ public class ChatActivity extends AppCompatActivity {
                     Map chatUserMap = new HashMap<>();
                     chatUserMap.put("Chat/" + mCurrentUserId + "/" + mChatUser, chatAddMap);
                     chatUserMap.put("Chat/" + mChatUser + "/" + mCurrentUserId, chatAddMap);
-                    mRootref.updateChildren(chatUserMap, new DatabaseReference.CompletionListener() {
+                    mRootRef.updateChildren(chatUserMap, new DatabaseReference.CompletionListener() {
                         @Override
                         public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                             if (databaseError != null) {
@@ -214,7 +211,7 @@ public class ChatActivity extends AppCompatActivity {
             chatMsg.setText("");
             String currentUserRef = "messages/" + mCurrentUserId + "/" + mChatUser;
             String chatUserRef = "messages/" + mChatUser + "/" + mCurrentUserId;
-            DatabaseReference userMsgPush = mRootref.child("messages")
+            DatabaseReference userMsgPush = mRootRef.child("messages")
                     .child(mCurrentUserId).child(mChatUser).push();
             String pushId = userMsgPush.getKey();
             Map msgMap = new HashMap<>();
@@ -226,7 +223,7 @@ public class ChatActivity extends AppCompatActivity {
             Map msgUserMap = new HashMap<>();
             msgUserMap.put(currentUserRef + "/" + pushId, msgMap);
             msgUserMap.put(chatUserRef + "/" + pushId, msgMap);
-            mRootref.updateChildren(msgUserMap, new DatabaseReference.CompletionListener() {
+            mRootRef.updateChildren(msgUserMap, new DatabaseReference.CompletionListener() {
                 @Override
                 public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                     if (databaseError != null)
@@ -268,7 +265,7 @@ public class ChatActivity extends AppCompatActivity {
                                 Log.d(TAG, "onSuccess: " + downloadUrl);
                                 String currentUserRef = "messages/" + mCurrentUserId + "/" + mChatUser;
                                 String chatUserRef = "messages/" + mChatUser + "/" + mCurrentUserId;
-                                DatabaseReference userMsgPush = mRootref.child("messages")
+                                DatabaseReference userMsgPush = mRootRef.child("messages")
                                         .child(mCurrentUserId).child(mChatUser).push();
                                 String pushId = userMsgPush.getKey();
                                 Map msgMap = new HashMap<>();
@@ -280,7 +277,7 @@ public class ChatActivity extends AppCompatActivity {
                                 Map msgUserMap = new HashMap<>();
                                 msgUserMap.put(currentUserRef + "/" + pushId, msgMap);
                                 msgUserMap.put(chatUserRef + "/" + pushId, msgMap);
-                                mRootref.updateChildren(msgUserMap, new DatabaseReference.CompletionListener() {
+                                mRootRef.updateChildren(msgUserMap, new DatabaseReference.CompletionListener() {
                                     @Override
                                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                                         mProgressDialog.dismiss();

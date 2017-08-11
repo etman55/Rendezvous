@@ -47,7 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
     @Bind(R.id.profile_decline_request_btn)
     Button declineBtn;
     private String uId = "";
-    private DatabaseReference mUserDatabase;
     private DatabaseReference mFriendReqDatabase;
     private DatabaseReference mFriendDatabase;
     private DatabaseReference mRootRef;
@@ -60,15 +59,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
-        Typeface tf = FontCache.get("fonts/Aller_Rg.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_regular), this);
         displayName.setTypeface(tf);
-        Typeface tf1 = FontCache.get("fonts/Aller_Lt.ttf", this);
+        Typeface tf1 = FontCache.get(getString(R.string.aller_light), this);
         about.setTypeface(tf1);
         friendRequestBtn.setTypeface(tf1);
         declineBtn.setTypeface(tf1);
         uId = getIntent().getStringExtra("user_id");
         mRootRef = FirebaseDatabase.getInstance().getReference();
-        mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
+        DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uId);
         mFriendReqDatabase = FirebaseDatabase.getInstance().getReference().child("Friend_req");
         mFriendDatabase = FirebaseDatabase.getInstance().getReference().child("Friends");
         mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -117,11 +116,11 @@ public class ProfileActivity extends AppCompatActivity {
                                     String reqType = dataSnapshot.child(uId).child("request_type").getValue().toString();
                                     if (reqType.equals("received")) {
                                         mCurrentState = "req_received";
-                                        friendRequestBtn.setText("Accept Friend Request");
+                                        friendRequestBtn.setText(getString(R.string.accept_friend));
                                         declineBtn.setVisibility(View.VISIBLE);
                                     } else if (reqType.equals("sent")) {
                                         mCurrentState = "req_sent";
-                                        friendRequestBtn.setText("Cancel Friend Request");
+                                        friendRequestBtn.setText(getString(R.string.cancel_request));
                                         declineBtn.setVisibility(View.INVISIBLE);
                                     }
                                 } else {
@@ -131,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                                     if (dataSnapshot.hasChild(uId)) {
                                                         mCurrentState = "friends";
-                                                        friendRequestBtn.setText("UnFriend this person");
+                                                        friendRequestBtn.setText(getString(R.string.unfriend));
                                                     }
                                                 }
 
@@ -185,7 +184,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                         friendRequestBtn.setEnabled(true);
                         mCurrentState = "req_sent";
-                        friendRequestBtn.setText("Cancel Friend Request");
+                        friendRequestBtn.setText(getString(R.string.cancel_request));
                         declineBtn.setVisibility(View.INVISIBLE);
                         if (databaseError != null)
                             Toast.makeText(ProfileActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT)
@@ -203,7 +202,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                         friendRequestBtn.setEnabled(true);
                         mCurrentState = "not_friends";
-                        friendRequestBtn.setText("Send Friend Request");
+                        friendRequestBtn.setText(getString(R.string.send_friend_request));
                         declineBtn.setVisibility(View.INVISIBLE);
                         if (databaseError != null)
                             Toast.makeText(ProfileActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT)
@@ -221,7 +220,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                         friendRequestBtn.setEnabled(true);
                         mCurrentState = "not_friends";
-                        friendRequestBtn.setText("Send Friend Request");
+                        friendRequestBtn.setText(getString(R.string.send_friend_request));
                         declineBtn.setVisibility(View.INVISIBLE);
                         if (databaseError != null)
                             Toast.makeText(ProfileActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT)
@@ -242,7 +241,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                         friendRequestBtn.setEnabled(true);
                         mCurrentState = "friends";
-                        friendRequestBtn.setText("UnFriend this person");
+                        friendRequestBtn.setText(getString(R.string.unfriend));
                         declineBtn.setVisibility(View.INVISIBLE);
                         if (databaseError != null)
                             Toast.makeText(ProfileActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT)
@@ -264,7 +263,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 friendRequestBtn.setEnabled(true);
                 mCurrentState = "not_friends";
-                friendRequestBtn.setText("Send Friend Request");
+                friendRequestBtn.setText(getString(R.string.send_friend_request));
                 declineBtn.setVisibility(View.INVISIBLE);
                 if (databaseError != null)
                     Toast.makeText(ProfileActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT)

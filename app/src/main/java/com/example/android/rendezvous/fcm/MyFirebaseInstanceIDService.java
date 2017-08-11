@@ -18,9 +18,6 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     private static final String TAG = "MyFirebaseIIDService";
-    private FirebaseAuth mAuth;
-    private FirebaseUser mFirebaseUser;
-    private DatabaseReference mUserDatabase;
 
     @Override
     public void onTokenRefresh() {
@@ -29,10 +26,10 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
     }
 
     private void sendRegistrationToServer(String token) {
-        mAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mAuth.getCurrentUser();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser mFirebaseUser = mAuth.getCurrentUser();
         if (mFirebaseUser != null) {
-            mUserDatabase = FirebaseDatabase.getInstance().getReference()
+            DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference()
                     .child("Users").child(mFirebaseUser.getUid());
 
             mUserDatabase.child("about").setValue(token).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -17,13 +17,13 @@ public class User implements Parcelable {
     public User() {
     }
 
-    public User(String device_token, String name, String image, String online, String about, String thumb_image) {
+    public User(String device_token, String name) {
         this.device_token = device_token;
         this.name = name;
-        this.image = image;
-        this.online = online;
-        this.about = about;
-        this.thumb_image = thumb_image;
+        this.image = "";
+        this.online = "true";
+        this.about = "default";
+        this.thumb_image = "";
     }
 
     public String getDevice_token() {
@@ -74,7 +74,7 @@ public class User implements Parcelable {
         this.thumb_image = thumb_image;
     }
 
-    protected User(Parcel in) {
+    private User(Parcel in) {
         device_token = in.readString();
         name = in.readString();
         image = in.readString();

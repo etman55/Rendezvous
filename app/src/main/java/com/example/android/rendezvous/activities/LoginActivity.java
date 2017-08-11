@@ -79,7 +79,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private DatabaseReference userDatabase;
     private GoogleApiClient mGoogleApiClient;
     private String deviceToken;
-    private GoogleSignInOptions gso;
     private CallbackManager callbackManager;
     private MaterialDialog dialog;
 
@@ -90,15 +89,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         ButterKnife.bind(this);
         firebaseAuth = FirebaseAuth.getInstance();
         userDatabase = FirebaseDatabase.getInstance().getReference();
-        Typeface tf = FontCache.get("fonts/Aller_Rg.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_regular), this);
         inputEmail.setTypeface(tf);
         inputPassword.setTypeface(tf);
         resetPassword.setTypeface(tf);
         register.setTypeface(tf);
         loginBtn.setTypeface(tf);
-        Typeface tf1 = FontCache.get("fonts/WCManoNegraBoldBta-webfont.ttf", this);
+        Typeface tf1 = FontCache.get(getString(R.string.negra_bold), this);
         logoTxt.setTypeface(tf1);
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();

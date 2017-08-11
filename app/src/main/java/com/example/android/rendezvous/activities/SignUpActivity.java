@@ -66,12 +66,12 @@ public class SignUpActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Typeface tf = FontCache.get("fonts/Aller_Bd.ttf", this);
+        Typeface tf = FontCache.get(getString(R.string.aller_bold), this);
         toolbarTxt.setTypeface(tf);
-        Typeface tf2 = FontCache.get("fonts/Aller_Rg.ttf", this);
+        Typeface tf2 = FontCache.get(getString(R.string.aller_regular), this);
         textView.setTypeface(tf2);
-        Typeface tf1 = FontCache.get("fonts/Aller_Rg.ttf", this);
-        toolbarTxt.setText("Sign up");
+        Typeface tf1 = FontCache.get(getString(R.string.aller_regular), this);
+        toolbarTxt.setText(getString(R.string.sign_up));
         inputUsername.setTypeface(tf1);
         inputEmail.setTypeface(tf1);
         inputPassword.setTypeface(tf1);
@@ -131,8 +131,8 @@ public class SignUpActivity extends AppCompatActivity {
                             deviceToken = FirebaseInstanceId.getInstance().getToken();
                             mDatabase = FirebaseDatabase.getInstance().getReference().
                                     child("Users").child(uId);
-                            User userModel = new User(deviceToken, username,
-                                    "", "true", "default", "");
+                            User userModel = new User(deviceToken, username
+                            );
                             mDatabase.setValue(userModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
