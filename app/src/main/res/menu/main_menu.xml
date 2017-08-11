@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/main_settings_btn"
-        android:title="Settings" />
+        android:title="@string/settings" />
     <item
         android:id="@+id/main_edit_profile_btn"
-        android:title="Edit Profile" />
+        android:title="@string/edit_profile" />
     <item
         android:id="@+id/main_logout_btn"
-        android:title="Log out" />
+        android:title="@string/logout" />
 </menu>

@@ -241,7 +241,7 @@ public class FindPeopleFragment extends Fragment implements GeoQueryEventListene
                     public void onClick(final DialogInterface dialog,
                                         final int id) {
                         dialog.cancel();
-                        Toast.makeText(getContext(), "Please enable location services to get better experience", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.enable_gps_message, Toast.LENGTH_SHORT).show();
                     }
                 });
         final AlertDialog alert = builder.create();

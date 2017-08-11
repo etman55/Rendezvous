@@ -93,7 +93,7 @@ public class ChatActivity extends AppCompatActivity {
         String mChatUserName = getIntent().getStringExtra("user_name");
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mRootRef = FirebaseDatabase.getInstance().getReference();
-        mChatPhotosStorageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://rendezvous-a14ef.appspot.com/chat_images");
+        mChatPhotosStorageReference = FirebaseStorage.getInstance().getReferenceFromUrl(getString(R.string.firebase_storage_url));
         if (mTitleTv != null) {
             mTitleTv.setText(mChatUserName);
         }
@@ -243,8 +243,8 @@ public class ChatActivity extends AppCompatActivity {
 
     private void showLoading() {
         mProgressDialog = new ProgressDialog(ChatActivity.this);
-        mProgressDialog.setTitle("Uploading Image");
-        mProgressDialog.setMessage("Loading Please wait!");
+        mProgressDialog.setTitle(R.string.uploading_image);
+        mProgressDialog.setMessage(getString(R.string.please_wait));
         mProgressDialog.setCanceledOnTouchOutside(false);
         mProgressDialog.show();
     }

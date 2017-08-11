@@ -159,8 +159,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void showLoading() {
         progressDialog = new ProgressDialog(ProfileActivity.this);
-        progressDialog.setTitle("Loading User Data");
-        progressDialog.setMessage("please wait while loading user data.");
+        progressDialog.setTitle(R.string.loading_user_data);
+        progressDialog.setMessage(getString(R.string.please_wait));
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
     }

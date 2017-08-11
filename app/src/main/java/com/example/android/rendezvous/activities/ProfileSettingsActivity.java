@@ -84,7 +84,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         mAbout.setTypeface(tf1);
         mChangeImageBtn.setTypeface(tf1);
         mChangeAboutBtn.setTypeface(tf1);
-        mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://rendezvous-a14ef.appspot.com/");
+        mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl(getString(R.string.firebase_database_ref));
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         String uId = mCurrentUser.getUid();
@@ -254,7 +254,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         if (dialog != null && dialog.isShowing())
             dialog.dismiss();
         dialog = new MaterialDialog.Builder(this)
-                .title("Uploading your image")
+                .title(R.string.uploading_image)
                 .content(R.string.please_wait)
                 .progress(true, 0)
                 .cancelable(false)
@@ -273,7 +273,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
                     getIntent.setType("image/*");
                     startActivityForResult(getIntent, PICK_IMAGE);
                 } else {
-                    Toast.makeText(ProfileSettingsActivity.this, "You should grant permission to proceed",
+                    Toast.makeText(ProfileSettingsActivity.this, getString(R.string.ask_for_permission),
                             Toast.LENGTH_SHORT).show();
                 }
             }

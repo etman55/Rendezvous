@@ -100,7 +100,7 @@ public class SettingsActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(
                 SettingsActivity.this);
         builder.setMessage(
-                "Are you sure you want to delete your account?")
+                getString(R.string.delete_account_msg))
                 .setCancelable(false)
                 .setPositiveButton("Ok",
                         new DialogInterface.OnClickListener() {
@@ -233,7 +233,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (materialDialog != null && materialDialog.isShowing())
             materialDialog.dismiss();
         materialDialog = new MaterialDialog.Builder(this)
-                .title("Deleting Account")
+                .title(R.string.delete_account)
                 .content(R.string.please_wait)
                 .progress(true, 0)
                 .cancelable(false)

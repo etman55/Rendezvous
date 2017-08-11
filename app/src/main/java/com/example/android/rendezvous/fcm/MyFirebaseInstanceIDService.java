@@ -35,7 +35,6 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
             mUserDatabase.child("about").setValue(token).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Log.d(TAG, "onSuccess: " + "token updated successfully");
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

@@ -17,10 +17,13 @@
     <string name="input_pass_match_error">Passwords don\'t match!</string>
     <string name="forget_password_dialog">Forget Password</string>
     <string name="email_forget_password_hint">Email</string>
+    <string name="check_email">Please check your e-mail !</string>
     <string name="save_radius">save radius</string>
     <string name="radius">Radius(KM)</string>
     <string name="prefill"> </string>
     <string name="please_wait">Loading please wait!</string>
+    <string name="loading_user_data">Loading User Data</string>
+    <string name="auth_failed">Authentication Failed!</string>
     <string name="account_info">Account Info</string>
     <string name="online_now">Online Now</string>
     <string name="your_name">Your Name</string>
@@ -30,6 +33,8 @@
     <string name="type_a_message">type a message..</string>
     <string name="display_name">Display name</string>
     <string name="profile_about">profile about</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Log out</string>
     <string name="no_friends">You don\'t have friends yet!</string>
     <string name="no_people">There\'s no people around you</string>
     <string name="send_friend_request">send friend request</string>
@@ -37,7 +42,13 @@
     <string name="accept_friend">Accept Friend Request</string>
     <string name="cancel_request">Cancel Friend Request</string>
     <string name="unfriend">UnFriend this person</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="delete_account_msg">Are you sure you want to delete your account?</string>
     <string name="change_image">Change Image</string>
+    <string name="ask_for_permission">You should grant permission to proceed</string>
+    <string name="uploading_image">Uploading your image</string>
+    <string name="firebase_storage_url">gs://rendezvous-a14ef.appspot.com/chat_images</string>
+    <string name="firebase_database_ref">gs://rendezvous-a14ef.appspot.com/</string>
     <string name="change_info">change info</string>
     <string name="choose_your_preferences">Choose Your Preferences</string>
     <string name="create_new_account">Create a new Account</string>

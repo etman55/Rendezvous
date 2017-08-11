@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else
-                Snackbar.make(contentLayout, "Authentication Failed!", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(contentLayout, R.string.auth_failed, Snackbar.LENGTH_SHORT).show();
         }
     }
 
@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         dialog.dismiss();
-                                        Snackbar.make(contentLayout, "Please check your e-mail !", Snackbar.LENGTH_SHORT).show();
+                                        Snackbar.make(contentLayout, R.string.check_email, Snackbar.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                             @Override

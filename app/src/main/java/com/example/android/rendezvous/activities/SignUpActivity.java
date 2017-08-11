@@ -163,7 +163,7 @@ public class SignUpActivity extends AppCompatActivity {
         if (dialog != null && dialog.isShowing())
             dialog.dismiss();
         dialog = new MaterialDialog.Builder(this)
-                .title("Create new account")
+                .title(R.string.create_new_account)
                 .content(R.string.please_wait)
                 .progress(true, 0)
                 .cancelable(false)
